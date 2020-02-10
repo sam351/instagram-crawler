@@ -33,6 +33,7 @@
 ```
 python crawler.py posts_full -u (유저명) -n 100 -o ./output_(유저명) --fetch_likes_plays
 
-python picture_crawler.py -o output_(유저명)   # picture_crawler.py 는 아직 개발중
+# picture_crawler.py 는 아직 개발중
+python picture_crawler.py -o output_(유저명) --likes 200  # 좋아요 200개 이상인 사진만 크롤링
 ```
 

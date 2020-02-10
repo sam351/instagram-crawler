@@ -28,12 +28,17 @@
 
 
 
+8. output/ 폴더 생성
+   - crawler.py 의 결과물을 저장할 디렉토리
+
+
+
 ## Example
 
 ```
-python crawler.py posts_full -u (유저명) -n 100 -o ./output_(유저명) --fetch_likes_plays
+python crawler.py posts_full -u (유저명) -n 100 -o ./output/output_(유저명) --fetch_likes_plays
 
 # picture_crawler.py 는 아직 개발중
-python picture_crawler.py -o output_(유저명) --likes 200  # 좋아요 200개 이상인 사진만 크롤링
+python picture_crawler.py -u (유저명) --likes 200  # 좋아요 200개 이상인 사진만 크롤링
 ```
 

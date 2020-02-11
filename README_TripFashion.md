@@ -38,7 +38,7 @@
 ```
 python crawler.py posts_full -u (유저명) -n 100 -o ./output/output_(유저명) --fetch_likes_plays
 
-# picture_crawler.py 는 아직 개발중
+# 반드시 crawler.py 를 실행한 이후에 실행해야 함
 python picture_crawler.py -u (유저명) --likes 200  # 좋아요 200개 이상인 사진만 크롤링
 ```
 

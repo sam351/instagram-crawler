@@ -132,11 +132,11 @@ class InsCrawler(Logging):
         }
 
     def get_user_posts(self, username, number=None, detail=False):
+        self.login()
+        
         user_profile = self.get_user_profile(username)
         if not number:
             number = instagram_int(user_profile["post_num"])
-
-        self._dismiss_login_prompt()
 
         if detail:
             return self._get_posts_full(number)

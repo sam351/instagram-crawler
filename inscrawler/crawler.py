@@ -175,16 +175,13 @@ class InsCrawler(Logging):
 
     def _get_posts_full(self, num):
         @retry()
-        def check_next_post(cur_key):
-            ele_a_datetime = browser.find_one(".eo2As .c-Yi7")
+        def check_next_post():
+            next_btn = browser.find_one(".EfHg9 ._65Bje.coreSpriteRightPaginationArrow")
 
-            # It takes time to load the post for some users with slow network
-            if ele_a_datetime is None:
+            if next_btn is None:
                 raise RetryException()
 
-            next_key = ele_a_datetime.get_attribute("href")
-            if cur_key == next_key:
-                raise RetryException()
+            next_btn.click()
 
         browser = self.browser
         browser.implicitly_wait(1)
@@ -203,8 +200,6 @@ class InsCrawler(Logging):
 
             # Fetching post detail
             try:
-                check_next_post(cur_key)
-
                 # Fetching datetime and url as key
                 ele_a_datetime = browser.find_one(".eo2As .c-Yi7")
                 cur_key = ele_a_datetime.get_attribute("href")
@@ -240,9 +235,7 @@ class InsCrawler(Logging):
             dict_posts[browser.current_url] = dict_post
 
             pbar.update(1)
-            left_arrow = browser.find_one(".HBoOv")
-            if left_arrow:
-                left_arrow.click()
+            check_next_post()
 
         pbar.close()
         posts = list(dict_posts.values())

@@ -182,6 +182,7 @@ class InsCrawler(Logging):
                 raise RetryException()
 
             next_btn.click()
+            sleep(0.5)
 
         browser = self.browser
         browser.implicitly_wait(1)
@@ -235,10 +236,15 @@ class InsCrawler(Logging):
             dict_posts[browser.current_url] = dict_post
 
             pbar.update(1)
-            check_next_post()
+            try :
+                check_next_post()
+            except :
+                print(f'\nFailed to check next post. Forced to stop fetching at {_+1}th post.\n')
+                break
 
         pbar.close()
         posts = list(dict_posts.values())
+        print(posts[0])
         if posts:
             posts.sort(key=lambda post: post["datetime"], reverse=True)
         return posts

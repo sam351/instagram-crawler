@@ -34,7 +34,7 @@ def fetch_hashtags(raw_test, dict_obj):
 
 
 def fetch_datetime(browser, dict_post):
-    ele_datetime = browser.find_one(".eo2As .c-Yi7 ._1o9PC")
+    ele_datetime = browser.find_one(".k_Q0X ._1o9PC")
     datetime = ele_datetime.get_attribute("datetime")
     dict_post["datetime"] = datetime
 
@@ -42,7 +42,7 @@ def fetch_datetime(browser, dict_post):
 def fetch_imgs(browser, dict_post):
     img_urls = list()
     while True:
-        ele_imgs = browser.find("._97aPb img", waittime=10)
+        ele_imgs = browser.find("._97aPb .FFVAD", waittime=10)
 
         if isinstance(ele_imgs, list):
             for ele_img in ele_imgs:

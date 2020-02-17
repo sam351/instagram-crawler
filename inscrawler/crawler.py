@@ -244,7 +244,6 @@ class InsCrawler(Logging):
 
         pbar.close()
         posts = list(dict_posts.values())
-        print(posts[0])
         if posts:
             posts.sort(key=lambda post: post["datetime"], reverse=True)
         return posts

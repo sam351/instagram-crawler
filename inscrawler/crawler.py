@@ -134,9 +134,13 @@ class InsCrawler(Logging):
     def get_user_posts(self, username, number=None, detail=False):
         self.login()
         
-        user_profile = self.get_user_profile(username)
+        browser = self.browser
+        url = "%s/%s/" % (InsCrawler.URL, username)
+        browser.get(url)
+        
         if not number:
-            number = instagram_int(user_profile["post_num"])
+            post_num = browser.find(".g47SY")[0].text
+            number = instagram_int(post_num)
 
         if detail:
             return self._get_posts_full(number)

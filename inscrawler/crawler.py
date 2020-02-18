@@ -205,7 +205,7 @@ class InsCrawler(Logging):
             # Fetching post detail
             try:
                 # Fetching datetime and url as key
-                sleep(1.5)
+                sleep(0.5)
                 ele_a_datetime = browser.find_one(".eo2As .c-Yi7")
                 cur_key = ele_a_datetime.get_attribute("href")
                 dict_post["key"] = cur_key

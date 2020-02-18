@@ -182,7 +182,6 @@ class InsCrawler(Logging):
                 raise RetryException()
 
             next_btn.click()
-            sleep(0.5)
 
         browser = self.browser
         browser.implicitly_wait(1)
@@ -202,7 +201,7 @@ class InsCrawler(Logging):
             # Fetching post detail
             try:
                 # Fetching datetime and url as key
-                ele_a_datetime = browser.find_one(".v1Nh3 a")
+                ele_a_datetime = browser.find_one(".eo2As .c-Yi7")
                 cur_key = ele_a_datetime.get_attribute("href")
                 dict_post["key"] = cur_key
                 fetch_datetime(browser, dict_post)
@@ -268,7 +267,7 @@ class InsCrawler(Logging):
                 key = ele.get_attribute("href")
                 if key not in key_set:
                     dict_post = { "key": key }
-                    ele_img = browser.find_one(".KL4Bh .FFVAD", ele)
+                    ele_img = browser.find_one(".KL4Bh img", ele)
                     dict_post["caption"] = ele_img.get_attribute("alt")
                     dict_post["img_url"] = ele_img.get_attribute("src")
 

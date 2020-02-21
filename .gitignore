@@ -1,6 +1,7 @@
 *.log
 .DS_Store
 .vscode/
+.ipynb_checkpoints/
 
 test.py
 build/

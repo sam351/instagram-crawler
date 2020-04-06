@@ -1,3 +1,6 @@
+# Warnings : This repository is revised only for using posts_full mode, so other functions & features may not work properly. It would be better to refer to original repo. (https://github.com/huaying/instagram-crawler)
+
+
 # Instagram Crawler [![Build Status](https://travis-ci.org/huaying/instagram-crawler.svg?branch=master)](https://travis-ci.org/huaying/instagram-crawler)
 
 Below is what you can do with this program:
